@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Liteworks", "Liteworks\Liteworks.csproj", "{6A5DCB98-2F47-41C0-A782-27463AFAEF7D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A5DCB98-2F47-41C0-A782-27463AFAEF7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A5DCB98-2F47-41C0-A782-27463AFAEF7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A5DCB98-2F47-41C0-A782-27463AFAEF7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A5DCB98-2F47-41C0-A782-27463AFAEF7D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36A2B725-A404-4DA8-80E2-1E5B1DB613C3}
+	EndGlobalSection
+EndGlobal

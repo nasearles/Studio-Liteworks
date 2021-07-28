@@ -68,8 +68,22 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="LightingUnits\LightingUnit.cs" />
+    <Compile Include="ViewModels\ColorControlViewModel.cs" />
+    <Compile Include="ViewModels\LightingDevicesViewModel.cs" />
     <Compile Include="ViewModels\MenuClosedViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="Views\AnimationCreatorView.xaml.cs">
+      <DependentUpon>AnimationCreatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AnimationSelectorView.xaml.cs">
+      <DependentUpon>AnimationSelectorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ColorControlView.xaml.cs">
+      <DependentUpon>ColorControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LightingDevicesView.xaml.cs">
+      <DependentUpon>LightingDevicesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MenuClosedView.xaml.cs">
       <DependentUpon>MenuClosedView.xaml</DependentUpon>
     </Compile>
@@ -88,6 +102,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AnimationCreatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AnimationSelectorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ColorControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LightingDevicesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MenuClosedView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

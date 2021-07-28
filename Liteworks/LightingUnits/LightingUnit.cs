@@ -14,14 +14,22 @@ namespace Liteworks.LightingUnits
         private int _arraySize { get; set; }
         private int _arrayPort { get; set; }
         public string Name { get; set; }
+        private bool _selected { get; set; }
+
+        private string _rectName { get; set; }
 
         public LightingUnit()
         {
             _colorValue = new byte[3];
+                _colorValue[0] = 0;
+                _colorValue[1] = 0;
+                _colorValue[2] = 0;
+
             _isAnimated = false;
-            _arraySize = 60;
-            _arrayPort = 9;
-            Name = "default";
+            _arraySize = 0;
+            _arrayPort = 99;
+            Name = "Not Connected";
+            _rectName = "unit1";
         }
 
         public LightingUnit(string n, int s, int p)
@@ -35,12 +43,20 @@ namespace Liteworks.LightingUnits
             _arrayPort = p;
         }
 
-        public void SetColor(byte red, byte green, byte blue)
+        public void SetColorRGB(byte red, byte green, byte blue)
         {
             _colorValue[0] = red;
             _colorValue[1] = green;
             _colorValue[2] = blue;
-            
+        }
+
+        public string GetName()
+        {
+            return Name;
+        }
+        public void UpdateRectangle()
+        {
+
         }
 
 

@@ -8,5 +8,6 @@ namespace Liteworks.ViewModels
 {
     class MenuViewModel
     {
+
     }
 }

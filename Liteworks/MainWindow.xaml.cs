@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Liteworks.ViewModels;
 using Liteworks.LightingUnits;
+using System.IO.Ports;
+using Liteworks.Views;
 
 namespace Liteworks
 {
@@ -23,21 +25,32 @@ namespace Liteworks
     public partial class MainWindow : Window
     {
         public static int a { get; set; }
+        public static int c { get; set; }
         public static int selected { get; set; }
 
         public static int[] unit { get; set; }
 
         public string Names;
 
+        MenuViewModel hold;
+
+        SerialPort serialPort;
+
+        //string[] ports;
+
 
         public MainWindow()
         {
             InitializeComponent();
             a = 0;
+            c = 0;
             LightingUnit bars = new LightingUnit();
             bars.Name = "Unit 1";
             Names = bars.Name;
+            serialPort = new SerialPort();
         } 
+
+       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         { 
@@ -87,11 +100,17 @@ namespace Liteworks
         {
             if (a == 0)
             {
-                DataContext = new MenuViewModel();
+                if (c == 0)
+                {
+                    hold = new MenuViewModel();
+                    c = 1;
+                }
+                DataContext = hold;
                 a = 1;
             }
             else
             {
+                serialPort = MenuView.GetPort();
                 DataContext = new MenuClosedViewModel();
                 a = 0;
             }
@@ -116,8 +135,25 @@ namespace Liteworks
 
         private void btnSelect_Click(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if(!serialPort.IsOpen)
+                serialPort = MenuView.GetPort();
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
                 rectActual.Fill = rectSelected.Fill;
+                SolidColorBrush cb = rectActual.Fill as SolidColorBrush;
+                if (cb != null)//&& ((string)serialConnectButton.Content == "Disconnect")
+                {
+                    Color c = cb.Color;
+                    byte[] pix = new byte[3];
+                    pix[0] = c.R;
+                    pix[1] = c.G;
+                    pix[2] = c.B;
+                    serialPort.Write(pix, 0, 3);
+
+                }
+            }
+            
         }
 
         //Change color cube to correlate with the brightness slider
@@ -205,6 +241,8 @@ namespace Liteworks
             }
             return bitmap_of_Element;
         }
+
+
 
 
 

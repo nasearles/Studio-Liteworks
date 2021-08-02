@@ -51,6 +51,16 @@ namespace Liteworks
         } 
 
        
+        private void HoverAnimation(object sender, MouseEventArgs e)
+        {
+            ((Image)sender).Opacity = 0;
+            
+        }
+
+        private void Unhover(object sender, MouseEventArgs e)
+        {
+            ((Image)sender).Opacity = 1;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         { 

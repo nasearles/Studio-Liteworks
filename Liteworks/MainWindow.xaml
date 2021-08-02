@@ -30,10 +30,11 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
        
         <Grid Background="#000030"
-			  Grid.ColumnSpan="3" MouseDown="Window_MouseDown">
+			  Grid.ColumnSpan="4" MouseDown="Window_MouseDown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
@@ -178,7 +179,33 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="2">
+        <Grid Grid.Column="3" Grid.Row="1" Background="#222222">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="1" Source="Images\rainbowBlue.png" Width="50" Margin="5,10,10,0"/>
+            <Image Grid.Row="2" Source="Images\bounceBlue.png" Width="50" Margin="5,10,10,0"/>
+            <Image Grid.Row="3" Source="Images\syncBlue.png" Width="50" Margin="5,10,10,0" />
+            <Image Grid.Row="4" Source="Images\sparklerBlue.png" Width="50" Margin="5,10,10,0" />
+            <Image Grid.Row="5" Source="Images\sparklesBlue.png" Width="50" Margin="5,10,10,0" />
+            <Image Grid.Row="6" Source="Images\juggleBlue.png" Width="50" Margin="5,10,10,0" />
+            <Image Grid.Row="1" Name="Rainbow" Source="Images\rainbow.png" Width="50" Margin="5,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover"/>
+            <Image Grid.Row="2" Name="Bounce" Source="Images\bounce.png" Width="50" Margin="5,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover"/>
+            <Image Grid.Row="3" Name="Sync" Source="Images\sync.png" Width="50" Margin="5,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover"/>
+            <Image Grid.Row="4" Name="Sparkler" Source="Images\sparkler.png" Width="50" Margin="5,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover"/>
+            <Image Grid.Row="5" Name="Sparkles" Source="Images\sparkles.png" Width="50" Margin="5,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover"/>
+            <Image Grid.Row="6" Name="Juggle" Source="Images\juggle.png" Width="50" Margin="5,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover"/>
+
+
+
+
 
         </Grid>
         

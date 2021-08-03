@@ -138,8 +138,9 @@
                                 <ColumnDefinition Width="50"/>
                             </Grid.ColumnDefinitions>
                             <Slider x:Name="slider_Color" Orientation="Horizontal" Minimum="0"
-                                Maximum="1" Value="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
-                                ValueChanged="slider_Color_ValueChanged" BorderThickness="0" Grid.Column="2" Margin="20,0,20,0">
+                                Maximum="255" Value="255" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                ValueChanged="slider_Color_ValueChanged" BorderThickness="0" Grid.Column="2" Margin="20,0,20,0"
+                                    IsSnapToTickEnabled="True" TickFrequency="10" TickPlacement="TopLeft">
                             </Slider> 
                             <Image Source="Images\sun.png" Grid.Column="1" Margin="5,5,5,5"/>
                         </Grid>
@@ -150,9 +151,10 @@
                                 <ColumnDefinition Width="7*"/>
                                 <ColumnDefinition Width="50"/>
                             </Grid.ColumnDefinitions>
-                            <Slider x:Name="slider_Timing" Orientation="Horizontal" Minimum="0"
-                                Maximum="1" Value="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
-                                BorderThickness="0" Grid.Column="2" Margin="20,0,20,0">
+                            <Slider x:Name="slider_Timing" Orientation="Horizontal" Minimum="1"
+                                Maximum="255" Value="255" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                BorderThickness="0" Grid.Column="2" Margin="20,0,20,0" ValueChanged="slider_Timing_ValueChanged"
+                                    IsSnapToTickEnabled="True" Ticks="1,2,5,10,20,40,80,160,255" TickPlacement="TopLeft">
                             </Slider>
                             <Image Source="Images\timer.png" Grid.Column="1" Margin="5,5,5,5"/>
                         </Grid>
@@ -190,19 +192,20 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Image Grid.Row="1" Source="Images\rainbowBlue.png" Width="50" Margin="5,10,10,0"/>
-            <Image Grid.Row="2" Source="Images\bounceBlue.png" Width="50" Margin="5,10,10,0"/>
-            <Image Grid.Row="3" Source="Images\syncBlue.png" Width="50" Margin="5,10,10,0" />
-            <Image Grid.Row="4" Source="Images\sparklerBlue.png" Width="50" Margin="5,10,10,0" />
-            <Image Grid.Row="5" Source="Images\sparklesBlue.png" Width="50" Margin="5,10,10,0" />
-            <Image Grid.Row="6" Source="Images\juggleBlue.png" Width="50" Margin="5,10,10,0" />
-            <Image Grid.Row="1" Name="Rainbow" Source="Images\rainbow.png" Width="50" Margin="5,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover"/>
-            <Image Grid.Row="2" Name="Bounce" Source="Images\bounce.png" Width="50" Margin="5,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover"/>
-            <Image Grid.Row="3" Name="Sync" Source="Images\sync.png" Width="50" Margin="5,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover"/>
-            <Image Grid.Row="4" Name="Sparkler" Source="Images\sparkler.png" Width="50" Margin="5,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover"/>
-            <Image Grid.Row="5" Name="Sparkles" Source="Images\sparkles.png" Width="50" Margin="5,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover"/>
-            <Image Grid.Row="6" Name="Juggle" Source="Images\juggle.png" Width="50" Margin="5,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover"/>
-
+            
+            <Image Grid.Row="1" Source="Images\rainbowBlue.png" Width="50" Margin="10,10,10,0"/>
+            <Image Grid.Row="2" Source="Images\bounceBlue.png" Width="50" Margin="10,10,10,0"/>
+            <Image Grid.Row="3" Source="Images\syncBlue.png" Width="50" Margin="10,10,10,0" />
+            <Image Grid.Row="4" Source="Images\sparklerBlue.png" Width="50" Margin="10,10,10,0" />
+            <Image Grid.Row="5" Source="Images\sparklesBlue.png" Width="50" Margin="10,10,10,0" />
+            <Image Grid.Row="6" Source="Images\juggleBlue.png" Width="50" Margin="10,10,10,0" />
+            <Image Grid.Row="1" Name="Rainbow" Source="Images\rainbow.png" Width="50" Margin="7,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover" MouseDown="ledRainbow"/>
+            <Image Grid.Row="2" Name="Bounce" Source="Images\bounce.png" Width="50" Margin="7,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover" MouseDown="ledBounce"/>
+            <Image Grid.Row="3" Name="Sync" Source="Images\sync.png" Width="50" Margin="7,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover" MouseDown="Sinelon"/>
+            <Image Grid.Row="4" Name="Sparkler" Source="Images\sparkler.png" Width="50" Margin="7,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover" MouseDown="Confetti"/>
+            <Image Grid.Row="5" Name="Sparkles" Source="Images\sparkles.png" Width="50" Margin="7,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover" MouseDown="ledSparkles"/>
+            <Image Grid.Row="6" Name="Juggle" Source="Images\juggle.png" Width="50" Margin="7,10,10,0" MouseMove="HoverAnimation" MouseLeave="Unhover" MouseDown="ledJuggle"/>
+            
 
 
 

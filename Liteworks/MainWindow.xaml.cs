@@ -32,6 +32,8 @@ namespace Liteworks
 
         public string Names;
 
+        public byte[] pix;
+
         MenuViewModel hold;
 
         SerialPort serialPort;
@@ -48,6 +50,7 @@ namespace Liteworks
             bars.Name = "Unit 1";
             Names = bars.Name;
             serialPort = new SerialPort();
+            pix = new byte[4];
         } 
 
        
@@ -128,38 +131,25 @@ namespace Liteworks
 
         }
 
-        private void SideMenuUnclick(object sender, RoutedEventArgs e)
-        {
-            DataContext = new MenuClosedViewModel();
-        }
-
-        private void RowDefinition_DragOver(object sender, DragEventArgs e)
-        {
-
-        }
-
-        private void ExpandMenu(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void btnSelect_Click(object sender, MouseButtonEventArgs e)
         {
             if(!serialPort.IsOpen)
-                serialPort = MenuView.GetPort();
+                if(MenuView.GetPort() != null)
+                    serialPort = MenuView.GetPort();
 
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 rectActual.Fill = rectSelected.Fill;
                 SolidColorBrush cb = rectActual.Fill as SolidColorBrush;
-                if (cb != null)//&& ((string)serialConnectButton.Content == "Disconnect")
+                if (cb != null && serialPort.IsOpen)
                 {
                     Color c = cb.Color;
-                    byte[] pix = new byte[3];
-                    pix[0] = c.R;
-                    pix[1] = c.G;
-                    pix[2] = c.B;
-                    serialPort.Write(pix, 0, 3);
+                    pix[0] = 0;
+                    pix[1] = c.R;
+                    pix[2] = c.G;
+                    pix[3] = c.B;
+                    serialPort.Write(pix, 0, 4);
 
                 }
             }
@@ -171,8 +161,53 @@ namespace Liteworks
         {
             if (rectColor_Background != null)
             {
-                double imgOpacity = slider_Color.Value;
+                double imgOpacity = slider_Color.Value / 255;
                 imgCubeWhite.Opacity = imgOpacity;
+            }
+
+            if (serialPort == null)
+            {
+                if (MenuView.GetPort() != null)
+                {
+                    serialPort = MenuView.GetPort();
+                }
+            }
+
+            if (serialPort != null)
+            {
+                if (serialPort.IsOpen)
+                {
+                    pix[0] = 8;
+                    pix[1] = (byte)slider_Color.Value;
+                    pix[2] = 0;
+                    pix[3] = 0;
+                    serialPort.Write(pix, 0, 4);
+                }
+
+            }
+        }
+
+        private void slider_Timing_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (serialPort == null)
+            {
+                if (MenuView.GetPort() != null)
+                {
+                    serialPort = MenuView.GetPort();
+                }
+            }
+
+            if (serialPort != null)
+            {
+                if (serialPort.IsOpen)
+                {
+                    pix[0] = 9;
+                    pix[1] = (byte)slider_Timing.Value;
+                    pix[2] = 0;
+                    pix[3] = 0;
+                    serialPort.Write(pix, 0, 4);
+                }
+
             }
         }
 
@@ -250,6 +285,140 @@ namespace Liteworks
                 }
             }
             return bitmap_of_Element;
+        }
+
+        private void ledRainbow(object sender, MouseButtonEventArgs e)
+        {
+            if (!serialPort.IsOpen)
+                if (MenuView.GetPort() != null)
+                    serialPort = MenuView.GetPort();
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                rectActual.Fill = rectSelected.Fill;
+                SolidColorBrush cb = rectActual.Fill as SolidColorBrush;
+                if (cb != null && serialPort.IsOpen)
+                {
+                    Color c = cb.Color;
+                    pix[0] = 1;
+                    pix[1] = 0;
+                    pix[2] = 0;
+                    pix[3] = 0;
+                    serialPort.Write(pix, 0, 4);
+
+                }
+            }
+        }
+
+        private void ledBounce(object sender, MouseButtonEventArgs e)
+        {
+            if (!serialPort.IsOpen)
+                if (MenuView.GetPort() != null)
+                    serialPort = MenuView.GetPort();
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                rectActual.Fill = rectSelected.Fill;
+                SolidColorBrush cb = rectActual.Fill as SolidColorBrush;
+                if (cb != null && serialPort.IsOpen)
+                {
+                    Color c = cb.Color;
+                    pix[0] = 6;
+                    pix[1] = 0;
+                    pix[2] = 0;
+                    pix[3] = 0;
+                    serialPort.Write(pix, 0, 4);
+
+                }
+            }
+        }
+        private void Sinelon(object sender, MouseButtonEventArgs e)
+        {
+            if (!serialPort.IsOpen)
+                if (MenuView.GetPort() != null)
+                    serialPort = MenuView.GetPort();
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                rectActual.Fill = rectSelected.Fill;
+                SolidColorBrush cb = rectActual.Fill as SolidColorBrush;
+                if (cb != null && serialPort.IsOpen)
+                {
+                    Color c = cb.Color;
+                    pix[0] = 4;
+                    pix[1] = 0;
+                    pix[2] = 0;
+                    pix[3] = 0;
+                    serialPort.Write(pix, 0, 4);
+
+                }
+            }
+        }
+        private void Confetti(object sender, MouseButtonEventArgs e)
+        {
+            if (!serialPort.IsOpen)
+                if (MenuView.GetPort() != null)
+                    serialPort = MenuView.GetPort();
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                rectActual.Fill = rectSelected.Fill;
+                SolidColorBrush cb = rectActual.Fill as SolidColorBrush;
+                if (cb != null && serialPort.IsOpen)
+                {
+                    Color c = cb.Color;
+                    pix[0] = 3;
+                    pix[1] = 0;
+                    pix[2] = 0;
+                    pix[3] = 0;
+                    serialPort.Write(pix, 0, 4);
+
+                }
+            }
+        }
+        private void ledSparkles(object sender, MouseButtonEventArgs e)
+        {
+            if (!serialPort.IsOpen)
+                if (MenuView.GetPort() != null)
+                    serialPort = MenuView.GetPort();
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                rectActual.Fill = rectSelected.Fill;
+                SolidColorBrush cb = rectActual.Fill as SolidColorBrush;
+                if (cb != null && serialPort.IsOpen)
+                {
+                    Color c = cb.Color;
+                    pix[0] = 2;
+                    pix[1] = 0;
+                    pix[2] = 0;
+                    pix[3] = 0;
+                    serialPort.Write(pix, 0, 4);
+
+                }
+            }
+        }
+        private void ledJuggle(object sender, MouseButtonEventArgs e)
+        {
+            if (!serialPort.IsOpen)
+                if (MenuView.GetPort() != null)
+                    serialPort = MenuView.GetPort();
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                rectActual.Fill = rectSelected.Fill;
+                SolidColorBrush cb = rectActual.Fill as SolidColorBrush;
+                if (cb != null && serialPort.IsOpen)
+                {
+                    Color c = cb.Color;
+                    pix[0] = 5;
+                    pix[1] = 0;
+                    pix[2] = 0;
+                    pix[3] = 0;
+                    serialPort.Write(pix, 0, 4);
+
+                }
+            }
         }
 
 

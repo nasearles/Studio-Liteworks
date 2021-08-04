@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="Studio Liteworks" Height="600" Width="900"
 		WindowStyle="none"
-		ResizeMode="NoResize"
+		ResizeMode="CanResizeWithGrip" AllowsTransparency="True"
         >
     <Window.Resources>
         <DataTemplate x:Name="menuBar" DataType="{x:Type viewMods:MenuViewModel}">
@@ -236,14 +236,14 @@
                 <RowDefinition Height="*"/>
 
             </Grid.RowDefinitions>
-            <Button Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="1" Grid.Row="2" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
-            <Button Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="1" Grid.Row="1" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
-            <Button Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="3" Grid.Row="1" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
-            <Button Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="3" Grid.Row="2" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
-            <Button Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="3" Grid.Row="3" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
-            <Button Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="1" Grid.Row="3" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
-            <Button Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="1" Grid.Row="4" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
-            <Button Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="3" Grid.Row="4" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
+            <Button Name="a3" Content="Light Bar 3" FontWeight="Bold" FontSize="14px" Grid.Column="1" Grid.Row="2" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
+            <Button Name="a1" Content="Light Bar 1" FontWeight="Bold" FontSize="14px" Grid.Column="1" Grid.Row="1" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
+            <Button Name="a2" Content="Light Bar 2" FontWeight="Bold" FontSize="14px" Grid.Column="3" Grid.Row="1" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
+            <Button Name="a4" Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="3" Grid.Row="2" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
+            <Button Name="a6" Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="3" Grid.Row="3" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
+            <Button Name="a5" Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="1" Grid.Row="3" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
+            <Button Name="a7" Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="1" Grid.Row="4" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
+            <Button Name="a8" Content="Not Connected" FontWeight="Bold" FontSize="14px" Grid.Column="3" Grid.Row="4" Width="auto" Height="auto" Margin="10,10,10,10" BorderThickness="5" BorderBrush="#191970" Click="displayUnit"/>
             <TextBlock Text="Lighting Devices"  TextWrapping="Wrap"  Grid.Column="1" Grid.ColumnSpan="3" Height="59" Width="254" FontSize="32px" FontWeight="Bold" TextAlignment="Center" Foreground="#ECECEC"/>
         </Grid>
         

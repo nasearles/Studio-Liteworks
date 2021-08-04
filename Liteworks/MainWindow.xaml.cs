@@ -28,7 +28,7 @@ namespace Liteworks
         public static int c { get; set; }
         public static int selected { get; set; }
 
-        public static int[] unit { get; set; }
+        public bool[] unit { get; set; }
 
         public string Names;
 
@@ -47,10 +47,15 @@ namespace Liteworks
             a = 0;
             c = 0;
             LightingUnit bars = new LightingUnit();
+            unit = new bool[8];
+            for(int i = 0; i < 8; i++)
+            {
+                unit[i] = false;
+            }
             bars.Name = "Unit 1";
             Names = bars.Name;
             serialPort = new SerialPort();
-            pix = new byte[4];
+            pix = new byte[5];
         } 
 
        
@@ -72,18 +77,24 @@ namespace Liteworks
 
         private void displayUnit(object sender, RoutedEventArgs e)
         {
-            ((Button)sender).Content = Names;
+            //((Button)sender).Content = Names;
             if (((Button)sender).BorderBrush != Brushes.Green)
+            {
                 ((Button)sender).BorderBrush = Brushes.Green;
-
+                unit[int.Parse(((Button)sender).Name.Substring(1, 1)) - 1] = true;
+            }
             else
+            {
                 ((Button)sender).BorderBrush = Brushes.MidnightBlue;
+                unit[int.Parse(((Button)sender).Name.Substring(1,1)) - 1] = false;
+            }
         }
 
         private void displayUnitTwo(object sender, RoutedEventArgs e)
         {
 
         }
+
         private void CloseButtonClick(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -149,7 +160,8 @@ namespace Liteworks
                     pix[1] = c.R;
                     pix[2] = c.G;
                     pix[3] = c.B;
-                    serialPort.Write(pix, 0, 4);
+                    pix[4] = ConvertBoolArrayToByte(unit);
+                    serialPort.Write(pix, 0, 5);
 
                 }
             }
@@ -181,7 +193,8 @@ namespace Liteworks
                     pix[1] = (byte)slider_Color.Value;
                     pix[2] = 0;
                     pix[3] = 0;
-                    serialPort.Write(pix, 0, 4);
+                    pix[4] = ConvertBoolArrayToByte(unit);
+                    serialPort.Write(pix, 0, 5);
                 }
 
             }
@@ -205,7 +218,8 @@ namespace Liteworks
                     pix[1] = (byte)slider_Timing.Value;
                     pix[2] = 0;
                     pix[3] = 0;
-                    serialPort.Write(pix, 0, 4);
+                    pix[4] = ConvertBoolArrayToByte(unit);
+                    serialPort.Write(pix, 0, 5);
                 }
 
             }
@@ -304,7 +318,8 @@ namespace Liteworks
                     pix[1] = 0;
                     pix[2] = 0;
                     pix[3] = 0;
-                    serialPort.Write(pix, 0, 4);
+                    pix[4] = ConvertBoolArrayToByte(unit);
+                    serialPort.Write(pix, 0, 5);
 
                 }
             }
@@ -327,7 +342,8 @@ namespace Liteworks
                     pix[1] = 0;
                     pix[2] = 0;
                     pix[3] = 0;
-                    serialPort.Write(pix, 0, 4);
+                    pix[4] = ConvertBoolArrayToByte(unit);
+                    serialPort.Write(pix, 0, 5);
 
                 }
             }
@@ -349,7 +365,8 @@ namespace Liteworks
                     pix[1] = 0;
                     pix[2] = 0;
                     pix[3] = 0;
-                    serialPort.Write(pix, 0, 4);
+                    pix[4] = ConvertBoolArrayToByte(unit);
+                    serialPort.Write(pix, 0, 5);
 
                 }
             }
@@ -371,7 +388,8 @@ namespace Liteworks
                     pix[1] = 0;
                     pix[2] = 0;
                     pix[3] = 0;
-                    serialPort.Write(pix, 0, 4);
+                    pix[4] = ConvertBoolArrayToByte(unit);
+                    serialPort.Write(pix, 0, 5);
 
                 }
             }
@@ -393,7 +411,8 @@ namespace Liteworks
                     pix[1] = 0;
                     pix[2] = 0;
                     pix[3] = 0;
-                    serialPort.Write(pix, 0, 4);
+                    pix[4] = ConvertBoolArrayToByte(unit);
+                    serialPort.Write(pix, 0, 5);
 
                 }
             }
@@ -415,12 +434,31 @@ namespace Liteworks
                     pix[1] = 0;
                     pix[2] = 0;
                     pix[3] = 0;
-                    serialPort.Write(pix, 0, 4);
+                    pix[4] = ConvertBoolArrayToByte(unit);
+                    serialPort.Write(pix, 0, 5);
 
                 }
             }
         }
 
+        private static byte ConvertBoolArrayToByte(bool[] source)
+        {
+            byte result = 0;
+            // This assumes the array never contains more than 8 elements!
+            int index = 8 - source.Length;
+
+            // Loop through the array
+            foreach (bool b in source)
+            {
+                // if the element is 'true' set the bit at that position
+                if (b)
+                    result |= (byte)(1 << (7 - index));
+
+                index++;
+            }
+
+            return result;
+        }
 
 
 

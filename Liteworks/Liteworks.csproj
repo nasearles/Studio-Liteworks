@@ -82,6 +82,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConnectDevicesMenu.xaml.cs">
+      <DependentUpon>ConnectDevicesMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LightingUnits\LightingUnit.cs" />
     <Compile Include="ViewModels\MenuClosedViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
@@ -91,6 +94,10 @@
     <Compile Include="Views\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
+    <Page Include="ConnectDevicesMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

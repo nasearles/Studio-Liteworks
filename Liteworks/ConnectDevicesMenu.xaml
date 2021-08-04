@@ -1,0 +1,113 @@
+﻿<Window x:Class="Liteworks.ConnectDevicesMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Liteworks"
+        mc:Ignorable="d"
+        Title="ConnectDevices" Height="400" Width="250"
+		WindowStyle="none"
+		ResizeMode="NoResize" AllowsTransparency="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#000030" MouseDown="Connect_Window_MouseDown">
+            <TextBlock FontWeight="Bold" Text="Connect Devices" Foreground="White" FontSize="20px"
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+            <Image Source="Images\cancel.png" HorizontalAlignment="Right" Margin="0,5,5,5" MouseDown="Image_MouseDown"/>
+        </Grid>
+        <Grid Grid.Row="1" Background="#AFAFAF">
+            <ScrollViewer ForceCursor="True">
+                <StackPanel Orientation="Vertical" Margin="10,10,0,10">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Name:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceName1" Width="200" Margin="2,2,2,2" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Number of LEDs:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceNum1" Width="50" Margin="2,2,10,2" />
+                        <Button Content="Add" HorizontalAlignment="Right" Click="Add1"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <TextBlock Text="Name:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceName2" Width="200" Margin="2,2,2,2" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <TextBlock Text="Number of LEDs:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceNum2" Width="50" Margin="2,2,10,2" />
+                        <Button Content="Add" HorizontalAlignment="Right" Click="Add2"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <TextBlock Text="Name:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceName3" Width="200" Margin="2,2,2,2" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <TextBlock Text="Number of LEDs:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceNum3" Width="50" Margin="2,2,10,2" />
+                        <Button Content="Add" HorizontalAlignment="Right" Click="Add3"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <TextBlock Text="Name:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceName4" Width="200" Margin="2,2,2,2"  />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Number of LEDs:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceNum4" Width="50" Margin="2,2,10,2" />
+                        <Button Content="Add" HorizontalAlignment="Right" Click="Add4"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <TextBlock Text="Name:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceName5" Width="200" Margin="2,2,2,2" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Number of LEDs:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceNum5" Width="50" Margin="2,2,10,2" />
+                        <Button Content="Add" HorizontalAlignment="Right" Click="Add5"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <TextBlock Text="Name:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceName6" Width="200" Margin="2,2,2,2" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Number of LEDs:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceNum6" Width="50" Margin="2,2,10,2" />
+                        <Button Content="Add" HorizontalAlignment="Right" Click="Add6"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <TextBlock Text="Name:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceName7" Width="200" Margin="2,2,2,2" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Number of LEDs:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceNum7" Width="50" Margin="2,2,10,2" />
+                        <Button Content="Add" HorizontalAlignment="Right" Click="Add7"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <TextBlock Text="Name:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceName8" Width="200" Margin="2,2,2,2" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Number of LEDs:" FontWeight="Bold" VerticalAlignment="Center" Margin="2,2,2,2"/>
+                        <TextBox Name="deviceNum8" Width="50" Margin="2,2,10,2" />
+                        <Button Content="Add" HorizontalAlignment="Right" Click="Add8"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
+        <Grid Grid.Row="2" Background="#000030">
+            <Button Content="Accept" VerticalAlignment="Center" Margin="15,6,15,6" Click="AcceptClose"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -100,5 +100,11 @@ namespace Liteworks.Views
             }
         }
 
+        private void OpenDevices(object sender, RoutedEventArgs e)
+        {
+            ConnectDevicesMenu connectDevicesMenu = new ConnectDevicesMenu();
+            connectDevicesMenu.Show();
+        }
+
     }
 }
